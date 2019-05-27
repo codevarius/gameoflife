@@ -3,7 +3,7 @@ package core.main;
 import java.awt.*;
 import java.util.Random;
 
-public class Bot {
+class Bot {
   private   int size, x, y;
   private Color botColor;
   private static Random rnd = new Random();
@@ -12,7 +12,7 @@ public class Bot {
 
 
 
-    public Bot() {
+    Bot() {
         size = 4;
         botColor = Color.orange;
         x = rnd.nextInt(World.worldWidh);
@@ -21,7 +21,8 @@ public class Bot {
             dna[i] = rnd.nextInt(4);
         }
     }
-    public void  update() {
+
+    void  update() {
 
         if(currentDnaPosition >= dna.length-1) {
             currentDnaPosition = 0;
@@ -47,8 +48,9 @@ public class Bot {
        currentDnaPosition++;
 
     }
-    //отрисовка бота
-    public void paint(Graphics graphics) {
+
+    //bot painting meth
+    void paint(Graphics graphics) {
         graphics.setColor(botColor);
         graphics.fillRect(x,y,size,size);
 

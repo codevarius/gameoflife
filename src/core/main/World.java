@@ -4,24 +4,24 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
-public class World {
+class World {
 
     private boolean alive;
     private JFrame frame;
     private  JPanel panel;
     private ArrayList <Bot> botBox;
-    public static  int worldWidh = 800;
-    public static  int worldHeight = 600;
+    static  int worldWidh = 800;
+    static  int worldHeight = 600;
 
 
-    public World() {
+    World() {
         this.frame = new JFrame();
         frame.setTitle("core.main.World begin");
         frame.setBounds(100,100,worldWidh,worldHeight);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(false);
 
-        this.botBox = new ArrayList<Bot>();
+        this.botBox = new ArrayList<>();
         for (int i = 0;i < 100; i++ ) {
             botBox.add(new Bot());
         }
@@ -43,22 +43,22 @@ public class World {
 
     }
 
-    public void setAlive(boolean alive) {
+    private void setAlive(boolean alive) {
         this.alive = alive;
 
     }
 
-    public boolean getAlive() {
+    boolean getAlive() {
         return alive;
     }
 
-    public void update() {
+    void update() {
         for (Bot bot:botBox) {
             bot.update();
         }
     }
 
-    public void render() {
+    void render() {
         panel.repaint();
     }
 
