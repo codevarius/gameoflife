@@ -3,10 +3,13 @@ package core.main;
 public class Main {
 
     /*
-    * Recent changes on 27.05.2019:
-    *   1. Added supporting comments
-    *   2. Bot move distance was referenced to var 'step'
-    */
+ ______     ______     __    __     ______        ______     ______      __         __     ______   ______
+/\  ___\   /\  __ \   /\ "-./  \   /\  ___\      /\  __ \   /\  ___\    /\ \       /\ \   /\  ___\ /\  ___\
+\ \ \__ \  \ \  __ \  \ \ \-./\ \  \ \  __\      \ \ \/\ \  \ \  __\    \ \ \____  \ \ \  \ \  __\ \ \  __\
+ \ \_____\  \ \_\ \_\  \ \_\ \ \_\  \ \_____\     \ \_____\  \ \_\       \ \_____\  \ \_\  \ \_\    \ \_____\
+  \/_____/   \/_/\/_/   \/_/  \/_/   \/_____/      \/_____/   \/_/        \/_____/   \/_/   \/_/     \/_____/
+
+     */
 
     //top edge of app
     public static void main(String[] args) {
@@ -22,7 +25,7 @@ public class Main {
 
                 //pause thread
                 try {
-                    Thread.sleep(80);
+                    Thread.sleep(70);
                 } catch (Exception ex){
                     ex.printStackTrace();
                 }

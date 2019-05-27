@@ -5,6 +5,7 @@ import java.util.Random;
 
 class Bot {
 
+    private static Color[] botColors = {Color.MAGENTA,Color.BLUE,Color.RED};
     private   int size, x, y,step,id;
     private Color botColor;
     private static Random rnd = new Random(); //static randomize obj (one for all bots)
@@ -15,8 +16,8 @@ class Bot {
     Bot(int id) {
         this.id = id;
         size = 4;
-        botColor = Color.orange;
-        x = rnd.nextInt(World.worldWidh);
+        botColor = botColors[rnd.nextInt(botColors.length)];
+        x = rnd.nextInt(World.worldWidth);
         y  = rnd.nextInt(World.worldHeight);
         step = rnd.nextInt(size-1)+1;
 
@@ -50,9 +51,9 @@ class Bot {
             y = 0;
         }
         if (x < 0) {
-            x = World.worldWidh;
+            x = World.worldWidth;
         }
-        if (x > World.worldWidh) {
+        if (x > World.worldWidth) {
             x = 0;
         }
 
@@ -64,14 +65,16 @@ class Bot {
     void paint(Graphics graphics) {
         graphics.setColor(botColor);
         graphics.fillRect(x,y,size,size);
-        graphics.setColor(Color.GREEN);
-        graphics.drawString("bot"+id+" ("+x+","+y+")",x-size,y-size);
+        graphics.setColor(Color.GREEN); //comment that if bot stat not needed
+        graphics.drawString("bot["+id+"]("+x+","+y+")",x-size,y-size); //comment that if bot stat not needed
     }
 
+    @Deprecated
     int getCurrentDnaPosition() {
         return dna[currentDnaPosition];
     }
 
+    @Deprecated
     int getId() {
         return id;
     }

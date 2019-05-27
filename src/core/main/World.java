@@ -2,19 +2,15 @@ package core.main;
 
 import javax.swing.*;
 import java.awt.*;
-import java.io.IOException;
 import java.util.ArrayList;
-import static java.lang.System.out;
-import static java.lang.System.setOut;
 
 class World {
 
-    private static int populationSize = 10;
     private boolean alive; // if true -> game continue running / if false -> game over
     private JFrame frame; // app window
     private  JPanel panel; //canvas
     private ArrayList <Bot> botBox; //box of bots
-    static  int worldWidh = 800; //app window width
+    static  int worldWidth = 800; //app window width
     static  int worldHeight = 600; //app window height
 
 
@@ -23,13 +19,14 @@ class World {
         //prepare app window
         this.frame = new JFrame();
         frame.setTitle("core.main.World begin");
-        frame.setBounds(100,100,worldWidh,worldHeight);
+        frame.setBounds(100,100, worldWidth,worldHeight);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(false);
 
         //load botBox with new bots
         this.botBox = new ArrayList<>();
-        for (int i = 0;i < populationSize; i++ ) {
+        int populationSize = 25;
+        for (int i = 0; i < populationSize; i++ ) {
             botBox.add(new Bot(i));
         }
 
