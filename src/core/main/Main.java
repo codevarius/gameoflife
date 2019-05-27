@@ -22,7 +22,7 @@ public class Main {
 
                 //pause thread
                 try {
-                    Thread.sleep(50);
+                    Thread.sleep(80);
                 } catch (Exception ex){
                     ex.printStackTrace();
                 }

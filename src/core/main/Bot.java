@@ -5,19 +5,20 @@ import java.util.Random;
 
 class Bot {
 
-    private   int size, x, y,step;
+    private   int size, x, y,step,id;
     private Color botColor;
     private static Random rnd = new Random(); //static randomize obj (one for all bots)
     private int [] dna = new int[1000];
     private int currentDnaPosition = 0;
 
     //bot constructor
-    Bot() {
+    Bot(int id) {
+        this.id = id;
         size = 4;
         botColor = Color.orange;
         x = rnd.nextInt(World.worldWidh);
         y  = rnd.nextInt(World.worldHeight);
-        step = rnd.nextInt(size);
+        step = rnd.nextInt(size-1)+1;
 
         //generate dna chain
         for (int i=0;i<dna.length-1;i++){
@@ -46,13 +47,13 @@ class Bot {
             y = World.worldHeight;
         }
         if (y > World.worldHeight) {
-            y = -size;
+            y = 0;
         }
         if (x < 0) {
             x = World.worldWidh;
         }
         if (x > World.worldWidh) {
-            x = -size;
+            x = 0;
         }
 
         //increment dna position index
@@ -63,7 +64,15 @@ class Bot {
     void paint(Graphics graphics) {
         graphics.setColor(botColor);
         graphics.fillRect(x,y,size,size);
+        graphics.setColor(Color.GREEN);
+        graphics.drawString("bot"+id+" ("+x+","+y+")",x-size,y-size);
     }
 
+    int getCurrentDnaPosition() {
+        return dna[currentDnaPosition];
+    }
 
+    int getId() {
+        return id;
+    }
 }

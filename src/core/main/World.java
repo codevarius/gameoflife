@@ -2,10 +2,14 @@ package core.main;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
 import java.util.ArrayList;
+import static java.lang.System.out;
+import static java.lang.System.setOut;
 
 class World {
 
+    private static int populationSize = 10;
     private boolean alive; // if true -> game continue running / if false -> game over
     private JFrame frame; // app window
     private  JPanel panel; //canvas
@@ -25,8 +29,8 @@ class World {
 
         //load botBox with new bots
         this.botBox = new ArrayList<>();
-        for (int i = 0;i < 100; i++ ) {
-            botBox.add(new Bot());
+        for (int i = 0;i < populationSize; i++ ) {
+            botBox.add(new Bot(i));
         }
 
         //prepare canvas
